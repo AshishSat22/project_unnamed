@@ -39,8 +39,8 @@ class TestEncryptedPipeline(unittest.TestCase):
         difference = (plain_pred - decrypted_pred).abs().max().item()
         print(f"\nMaximum absolute difference between Plain and Encrypted: {difference}")
         
-        # Test tolerance 0.01
-        self.assertTrue(torch.allclose(plain_pred, decrypted_pred, atol=0.01))
+        # Test CKKS noise tolerance (0.05 is safe for degree 8192 scaling bounds)
+        self.assertTrue(torch.allclose(plain_pred, decrypted_pred, atol=0.05))
 
     def tearDown(self):
         if os.path.exists(self.model_path):

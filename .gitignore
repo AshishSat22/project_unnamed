@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# PyTorch weights
+*.pth
+
+# Dataset
+data/
+
+# Temporary run/debug files
+pytest_output.txt
+out2.txt
+debug_results.json
+.pytest_cache/
